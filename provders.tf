@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami             = "ami-0453ec754f44f9a4a"
   instance_type   = "t2.micro"
-  security_groups = aws_security_group.allow_8080
+  vpc_security_group_ids = [ aws_security_group.allow_8080.id ]
 
   user_data = <<-EOF
             #!/bin/bash
